@@ -18,7 +18,7 @@ export const NormalTemp = ({ children }: NormalTempProps) => {
         mx="auto"
         pt={{ sm: 10, md: 14 }}
         px={{ sm: 4, md: 8 }}
-        pb={{ sm: 12, md: 24 }}
+        pb={{ sm: 14, md: 24 }}
       >
         {children}
       </Box>
