@@ -55,16 +55,14 @@ const MenuStyled = styled.menu<MenuStyledProps>(
     left: "50%",
     bottom: "20px",
     backdropFilter: "blur(3px)",
+    "& > div::-webkit-scrollbar": {
+      display: "none",
+    },
   },
   layoutMixin,
   borderMixin,
   spaceMixin
 );
-
-// const Divider = styled.div`
-//   height: 50px;
-//   ${({ theme }) => ` border-right:1px solid ${theme.colors.secondary}`}
-// `;
 
 export const Menu = () => {
   /**
@@ -119,10 +117,7 @@ export const Menu = () => {
           />
         </a>
         <Divider h="50px" />
-        <Box
-          onClick={() => setIsNightMode(!isNightMode)}
-          // css={{ "&:hover": { cursor: "pointer" } }}
-        >
+        <Box onClick={() => setIsNightMode(!isNightMode)}>
           {isNightMode ? (
             <AppButton
               icon={<SunIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
