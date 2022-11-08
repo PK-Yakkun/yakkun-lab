@@ -38,7 +38,7 @@ export const layoutMixin = ({
       : typeof maxW === "object" &&
           createResponsiveStyle("maxWidth", maxW.sm, maxW.md),
     maxH != null && typeof maxH === "string"
-      ? `maxHeight: ${maxH};`
+      ? `max-height: ${maxH};`
       : typeof maxH === "object" &&
           createResponsiveStyle("maxHeight", maxH.sm, maxH.md),
     display != null && typeof display === "string"
@@ -50,11 +50,11 @@ export const layoutMixin = ({
       : typeof overflow === "object" &&
           createResponsiveStyle("overflow", overflow.sm, overflow.md),
     overflowX != null && typeof overflowX === "string"
-      ? `overflowX: ${overflowX}`
+      ? `overflow-x: ${overflowX}`
       : typeof overflowX === "object" &&
           createResponsiveStyle("overflowX", overflowX.sm, overflowX.md),
     overflowY != null && typeof overflowY === "string"
-      ? `overflowY: ${overflowY}`
+      ? `overflow-y: ${overflowY}`
       : typeof overflowY === "object" &&
           createResponsiveStyle("overflowY", overflowY.sm, overflowY.md)
   );
