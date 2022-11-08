@@ -6,6 +6,7 @@ import { LayoutProps, layoutMixin } from "@/styles/mixins/layout";
 import { PositionProps, positionMixin } from "@/styles/mixins/position";
 import { SpaceProps, spaceMixin } from "@/styles/mixins/space";
 import { AllEventType } from "@/types/events";
+import { Button } from "@/components/atoms/Button/Button";
 
 export type AppButtonStyleProps = Partial<LayoutProps> &
   Partial<SpaceProps> &
@@ -48,7 +49,7 @@ export const AppButton = (props: AppButtonProps) => {
       p={2}
       borderRadius="12px"
     >
-      {props.icon}
+      <Button>{props.icon}</Button>
     </AppButtonStyled>
   );
 };
