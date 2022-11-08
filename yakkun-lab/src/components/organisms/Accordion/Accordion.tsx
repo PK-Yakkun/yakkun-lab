@@ -13,7 +13,6 @@ export const Accordion = () => {
 
   useEffect(() => {
     refHeight.current && setElmHeight(refHeight.current.clientHeight);
-    console.log(elmHeight);
   }, []);
 
   return (
