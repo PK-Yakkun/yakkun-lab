@@ -5,12 +5,14 @@ import { borderMixin, BorderProps } from "@/styles/mixins/border";
 import { layoutMixin, LayoutProps } from "@/styles/mixins/layout";
 import { opacityMixin, OpacityProps } from "@/styles/mixins/opacity";
 import { spaceMixin, SpaceProps } from "@/styles/mixins/space";
+import { animationMixin, AnimationProps } from "@/styles/mixins/animation";
 
 export type StackStyleProps = Partial<LayoutProps> &
   Partial<SpaceProps> &
   Partial<BackgroundProps> &
   Partial<BorderProps> &
-  Partial<OpacityProps> & {
+  Partial<OpacityProps> &
+  Partial<AnimationProps> & {
     direction?: CSS.Property.FlexDirection;
     alignItems?: CSS.Property.AlignItems;
     justifyContent?: CSS.Property.AlignContent;
@@ -28,7 +30,8 @@ export const StackStyled = styled.div<StackStyleProps>(
   spaceMixin,
   backgroundMixin,
   borderMixin,
-  opacityMixin
+  opacityMixin,
+  animationMixin
 );
 
 export type StackProps = StackStyleProps & {
