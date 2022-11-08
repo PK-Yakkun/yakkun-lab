@@ -91,26 +91,30 @@ export const Menu = () => {
         </Link>
         <Link href="/gallery" passHref>
           <AppButton
-            icon={<GridIcon viewBox="0 0 24 24" fill="primary" />}
+            icon={<GridIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
             chipName="Gallery"
           />
         </Link>
         <Divider h="50px" />
         <a href="https://twitter.com/dr_parrot" target="blank">
           <AppButton
-            icon={<TwitterIcon viewBox="0 0 24 24" fill="primary" />}
+            icon={
+              <TwitterIcon width="100%" viewBox="0 0 24 24" fill="primary" />
+            }
             chipName="Twitter"
           />
         </a>
         <a href="https://github.com/PK-Yakkun" target="blank">
           <AppButton
-            icon={<GithubIcon viewBox="0 0 24 24" fill="primary" />}
+            icon={
+              <GithubIcon width="100%" viewBox="0 0 24 24" fill="primary" />
+            }
             chipName="Github"
           />
         </a>
         <a href="https://zenn.dev/pk_yakkun" target="blank">
           <AppButton
-            icon={<NoteIcon viewBox="0 0 24 24" fill="primary" />}
+            icon={<NoteIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
             chipName="Note"
           />
         </a>
@@ -121,12 +125,14 @@ export const Menu = () => {
         >
           {isNightMode ? (
             <AppButton
-              icon={<SunIcon viewBox="0 0 24 24" fill="primary" />}
+              icon={<SunIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
               chipName="LightMode"
             />
           ) : (
             <AppButton
-              icon={<MoonIcon viewBox="0 0 24 24" fill="primary" />}
+              icon={
+                <MoonIcon width="100%" viewBox="0 0 24 24" fill="primary" />
+              }
               chipName="NightMode"
             />
           )}
