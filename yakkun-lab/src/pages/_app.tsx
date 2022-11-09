@@ -4,7 +4,9 @@ import { ThemeProvider } from "@emotion/react";
 import { ThemeContext } from "@/lib/store/theme";
 import { theme, nightTheme } from "@/theme/theme";
 import { useState } from "react";
-import Head from "next/head";
+import { Head } from "@/components/organisms/Head/Head";
+import { Menu } from "@/components/organisms/Menu/Menu";
+import { NormalTemp } from "@/components/templetes/NormalTemp/NormalTemp";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // NightModeに切り替えるステート
@@ -14,7 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={isNightMode ? nightTheme : theme}>
       <ThemeContext.Provider value={{ isNightMode, setIsNightMode }}>
         <Head>
-          <title>YUIS</title>
           <meta charSet="utf-8" />
           <meta
             name="viewport"
@@ -22,20 +23,24 @@ function MyApp({ Component, pageProps }: AppProps) {
           />
           <meta
             property="description"
-            content="YUISは、UIコンポーネントライブラリを作成するための基盤です。あなただけのUIライブラリを育成して、世界中のライバルとバトルしよう!!"
+            content="やっくんのポートフォリオです。Webデザインとかフロントエンドとかやったりやってなかったりします。"
           />
-          <meta property="og:title" content="YUIS -Yakkun UI System-" />
+          <meta property="og:title" content="Yakkun Lab" />
           <meta
             property="og:description"
-            content="あなただけのUIライブラリを育成して、世界中のライバルとバトルしよう!!"
+            content="やっくんのポートフォリオです。Webデザインとかフロントエンドとかやったりやってなかったりします。"
           />
-          <meta
+          {/* <meta
             property="og:image"
             content={`https://yuis.vercel.app/images/card_large_yuis.png`}
           />
-          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:card" content="summary_large_image" /> */}
         </Head>
-        <Component {...pageProps} />
+        <NormalTemp>
+          <Component {...pageProps} />
+        </NormalTemp>
+
+        <Menu />
       </ThemeContext.Provider>
     </ThemeProvider>
   );
