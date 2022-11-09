@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Box } from "@/components/atoms/Box/Box";
 import { BackgroundProps, backgroundMixin } from "@/styles/mixins/background";
 import { BorderProps, borderMixin } from "@/styles/mixins/border";
 import { LayoutProps, layoutMixin } from "@/styles/mixins/layout";
