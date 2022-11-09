@@ -1,17 +1,16 @@
-import { ArrowDownIcon } from "@/components/atoms/Icons/ArrowDownIcon";
-import { Stack } from "@/components/atoms/Stack/Stack";
 import { Typography } from "@/components/atoms/Typography/Typography";
 import { Accordion } from "@/components/organisms/Accordion/Accordion";
-import { NormalTemp } from "@/components/templetes/NormalTemp/NormalTemp";
+import { Head } from "@/components/organisms/Head/Head";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <NormalTemp>
+    <>
+      <Head title="Home" />
       <Typography variant="title" mb={2}>
         Yakkun Lab
       </Typography>
-      <Typography variant="h2" mb={{ sm: 10, md: 10 }}>
+      <Typography variant="h2" mb={10}>
         Frontend and Design
       </Typography>
       {/* Profile */}
@@ -43,7 +42,7 @@ const Home: NextPage = () => {
         <br />
         画面下のメニュー内、Twitterアイコンよりアクセスできます。
       </Typography>
-    </NormalTemp>
+    </>
   );
 };
 
