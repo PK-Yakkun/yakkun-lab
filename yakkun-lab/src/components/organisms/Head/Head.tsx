@@ -1,7 +1,7 @@
 import NextHead from "next/head";
 
 type HeadProps = {
-  title: string;
+  title?: string;
   children?: React.ReactNode;
 };
 
