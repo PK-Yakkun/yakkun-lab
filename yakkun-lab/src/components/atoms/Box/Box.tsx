@@ -8,7 +8,8 @@ import { SpaceProps, spaceMixin } from "@/styles/mixins/space";
 import { AllEventType } from "@/types/events";
 import { ColorType } from "@/types/color";
 import { animationMixin, AnimationProps } from "@/styles/mixins/animation";
-import { RefObject } from "react";
+import { ElementType, RefObject } from "react";
+import { boxShadowMixin, boxShadowProps } from "@/styles/mixins/shadow";
 
 type BoxBgProps = Partial<BackgroundProps>;
 
@@ -19,7 +20,8 @@ export type BoxStyleProps = Partial<LayoutProps> &
   Partial<PositionProps> &
   Partial<OpacityProps> &
   Partial<AllEventType> &
-  Partial<AnimationProps> & {
+  Partial<AnimationProps> &
+  Partial<boxShadowProps> & {
     bgColor?: ColorType;
   };
 
@@ -44,13 +46,15 @@ export const BoxStyled = styled.div<BoxStyleProps>(
   borderMixin,
   positionMixin,
   opacityMixin,
-  animationMixin
+  animationMixin,
+  boxShadowMixin
 );
 
 export type BoxProps = BoxStyleProps & {
   children?: React.ReactNode;
   ref?: RefObject<HTMLDivElement>;
+  as?: ElementType<any> | undefined;
 };
 export const Box = (props: BoxProps) => {
-  return <BoxStyled {...props} />;
+  return <BoxStyled as={props.as} {...props} />;
 };
