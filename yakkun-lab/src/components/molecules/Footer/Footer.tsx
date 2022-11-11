@@ -4,7 +4,7 @@ import { Box } from "@/components/atoms/Box/Box";
 
 export const Footer = () => {
   return (
-    <Box bgColor="secondary">
+    <Box as="footer" bgColor="secondary">
       <Stack justifyContent="center" pt={1} pb={18}>
         <Typography variant="caption">Development by Yakkun.</Typography>
       </Stack>
