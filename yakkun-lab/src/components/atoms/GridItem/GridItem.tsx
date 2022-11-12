@@ -1,6 +1,8 @@
+import { animationMixin, AnimationProps } from "@/styles/mixins/animation";
 import { BackgroundProps, backgroundMixin } from "@/styles/mixins/background";
 import { BorderProps, borderMixin } from "@/styles/mixins/border";
 import { GridChildrenProps, gridChildrenMixin } from "@/styles/mixins/grid";
+import { hoverMixin, HoverProps } from "@/styles/mixins/hover";
 import { LayoutProps, layoutMixin } from "@/styles/mixins/layout";
 import { OpacityProps, opacityMixin } from "@/styles/mixins/opacity";
 import { PositionProps, positionMixin } from "@/styles/mixins/position";
@@ -15,7 +17,9 @@ export type GridChildrenStyleProps = Partial<LayoutProps> &
   Partial<PositionProps> &
   Partial<OpacityProps> &
   Partial<boxShadowProps> &
-  Partial<GridChildrenProps>;
+  Partial<GridChildrenProps> &
+  Partial<HoverProps> &
+  Partial<AnimationProps>;
 
 export const GridChildrenStyled = styled.div<GridChildrenStyleProps>(
   spaceMixin,
@@ -25,7 +29,9 @@ export const GridChildrenStyled = styled.div<GridChildrenStyleProps>(
   opacityMixin,
   layoutMixin,
   boxShadowMixin,
-  gridChildrenMixin
+  gridChildrenMixin,
+  hoverMixin,
+  animationMixin
 );
 
 export type GridItemProps = GridChildrenStyleProps & {
