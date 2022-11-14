@@ -8,6 +8,7 @@ import { OpacityProps, opacityMixin } from "@/styles/mixins/opacity";
 import { PositionProps, positionMixin } from "@/styles/mixins/position";
 import { boxShadowMixin, boxShadowProps } from "@/styles/mixins/shadow";
 import { SpaceProps, spaceMixin } from "@/styles/mixins/space";
+import { EventClickType } from "@/types/events";
 import styled from "@emotion/styled";
 
 export type GridChildrenStyleProps = Partial<LayoutProps> &
@@ -19,7 +20,8 @@ export type GridChildrenStyleProps = Partial<LayoutProps> &
   Partial<boxShadowProps> &
   Partial<GridChildrenProps> &
   Partial<HoverProps> &
-  Partial<AnimationProps>;
+  Partial<AnimationProps> &
+  Partial<EventClickType>;
 
 export const GridChildrenStyled = styled.div<GridChildrenStyleProps>(
   spaceMixin,
