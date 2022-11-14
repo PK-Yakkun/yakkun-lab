@@ -1,6 +1,5 @@
 import { Box } from "@/components/atoms/Box/Box";
 import styled from "@emotion/styled";
-import { Footer } from "@/components/molecules/Footer/Footer";
 
 export const WrapperStyled = styled.div(
   ({ theme }) => `background: ${theme.color.body};`
@@ -22,7 +21,6 @@ export const NormalTemp = ({ children }: NormalTempProps) => {
       >
         {children}
       </Box>
-      <Footer />
     </WrapperStyled>
   );
 };

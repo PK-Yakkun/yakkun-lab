@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Head } from "@/components/organisms/Head/Head";
 import { Menu } from "@/components/organisms/Menu/Menu";
 import { NormalTemp } from "@/components/templetes/NormalTemp/NormalTemp";
+import { Footer } from "@/components/molecules/Footer/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // NightModeに切り替えるステート
@@ -39,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <NormalTemp>
           <Component {...pageProps} />
         </NormalTemp>
-
+        <Footer />
         <Menu />
       </ThemeContext.Provider>
     </ThemeProvider>
