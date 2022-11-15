@@ -9,6 +9,7 @@ export type PositionProps = {
   right: string | BreakPointProps;
   bottom: string | BreakPointProps;
   left: string | BreakPointProps;
+  inset: CSS.Property.Inset | BreakPointProps;
   zIndex: CSS.Property.ZIndex | BreakPointProps;
 };
 
@@ -18,6 +19,7 @@ export const positionMixin = ({
   right,
   bottom,
   left,
+  inset,
   zIndex,
 }: Partial<PositionProps>) => {
   return css(
@@ -40,6 +42,10 @@ export const positionMixin = ({
       ? { left: left }
       : typeof left === "object" &&
           createResponsiveStyle("left", left.sm, left.md),
+    inset != null && typeof inset === "string"
+      ? { inset: inset }
+      : typeof inset === "object" &&
+          createResponsiveStyle("inset", inset.sm, inset.md),
     zIndex != null && typeof zIndex === "string"
       ? { zIndex: zIndex }
       : typeof zIndex === "object" &&
