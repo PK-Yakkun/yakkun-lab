@@ -11,6 +11,7 @@ import { useState, useEffect, ElementType } from "react";
 import { BreakPointProps } from "@/types/responsive";
 import { createResponsiveStyle } from "@/lib/responsive";
 import { ColorType } from "@/types/color";
+import { animationMixin, AnimationProps } from "@/styles/mixins/animation";
 
 type VariantMapping = { [key in VariantType]: string };
 
@@ -32,7 +33,8 @@ export type StyleTypographyProps = Partial<LayoutProps> &
   Partial<BackgroundProps> &
   Partial<BorderProps> &
   Partial<PositionProps> &
-  Partial<OpacityProps> & {
+  Partial<OpacityProps> &
+  Partial<AnimationProps> & {
     textAlign?: CSS.Property.TextAlign | BreakPointProps;
     fontSize?: CSS.Property.FontSize | BreakPointProps;
     lineHeight?: CSS.Property.LineHeight | BreakPointProps;
@@ -52,7 +54,7 @@ export const TypographyStyled = styled.span<TypographyProps>(
       case "typography":
         return { color: theme.color.typography };
       default:
-        return null;
+        return { color: color };
     }
   },
   ({ variant, theme }) => {
@@ -170,7 +172,8 @@ export const TypographyStyled = styled.span<TypographyProps>(
   backgroundMixin,
   borderMixin,
   positionMixin,
-  opacityMixin
+  opacityMixin,
+  animationMixin
 );
 
 export type TypographyProps = StyleTypographyProps & {
