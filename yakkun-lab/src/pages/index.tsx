@@ -10,9 +10,10 @@ const Home: NextPage = () => {
       <Typography variant="title" mb={2}>
         Yakkun Lab
       </Typography>
-      <Typography variant="h2" mb={10}>
+      <Typography variant="h2" mb={{ sm: 6, md: 10 }}>
         Frontend and Design
       </Typography>
+
       {/* Profile */}
       <Typography variant="h3" pt={6}>
         Profile
@@ -24,17 +25,22 @@ const Home: NextPage = () => {
         <br />
         Next.js, Typescriptをよく使います。
       </Typography>
-      <Typography variant="h3" mt={10}>
+
+      {/* About */}
+      <Typography variant="h3" mt={{ sm: 8, md: 10 }}>
         About
       </Typography>
       <Typography variant="body" mt={2} mb={4}>
         アプリアイコンがメニューになっています。
         <br />
         ギャラリーやUIライブラリを開いたり開かなかったりできます。
-        また、ナイトモードに切り替えたり切り変えなかったりもできます。
+        <br />
+        また、ナイトモードに切り替えたり切り替えなかったりもできます。
       </Typography>
       <Accordion />
-      <Typography variant="h3" mt={10}>
+
+      {/* Contact */}
+      <Typography variant="h3" mt={{ sm: 8, md: 10 }}>
         Contact
       </Typography>
       <Typography variant="body" mt={2}>
