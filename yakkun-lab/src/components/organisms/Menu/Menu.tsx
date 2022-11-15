@@ -78,7 +78,7 @@ export const Menu = () => {
         alignItems="center"
         gap="14px"
         py={2}
-        px={3}
+        pl={3}
         overflowX="scroll"
       >
         <Link href="/" passHref>
@@ -117,7 +117,7 @@ export const Menu = () => {
           />
         </a>
         <Divider h="50px" />
-        <Box onClick={() => setIsNightMode(!isNightMode)}>
+        <Box onClick={() => setIsNightMode(!isNightMode)} pr={3}>
           {isNightMode ? (
             <AppButton
               icon={<SunIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
