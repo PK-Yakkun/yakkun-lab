@@ -14,36 +14,39 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [isNightMode, setIsNightMode] = useState<boolean>(false);
 
   return (
-    <ThemeProvider theme={isNightMode ? nightTheme : theme}>
-      <ThemeContext.Provider value={{ isNightMode, setIsNightMode }}>
-        <Head>
-          <meta charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta
-            property="description"
-            content="やっくんのポートフォリオです。Webデザインとかフロントエンドとかやったりやってなかったりします。"
-          />
-          <meta property="og:title" content="Yakkun Lab" />
-          <meta
-            property="og:description"
-            content="やっくんのポートフォリオです。Webデザインとかフロントエンドとかやったりやってなかったりします。"
-          />
-          {/* <meta
-            property="og:image"
-            content={`https://yuis.vercel.app/images/card_large_yuis.png`}
-          />
-          <meta name="twitter:card" content="summary_large_image" /> */}
-        </Head>
-        <NormalTemp>
-          <Component {...pageProps} />
-        </NormalTemp>
-        <Footer />
-        <Menu />
-      </ThemeContext.Provider>
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={isNightMode ? nightTheme : theme}>
+        <ThemeContext.Provider value={{ isNightMode, setIsNightMode }}>
+          <Head>
+            <meta charSet="utf-8" />
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+            <meta
+              property="description"
+              content="やっくんのポートフォリオです。Webデザインとかフロントエンドとかやったりやってなかったりします。"
+            />
+            <meta property="og:title" content="Yakkun Lab" />
+            <meta
+              property="og:description"
+              content="やっくんのポートフォリオです。Webデザインとかフロントエンドとかやったりやってなかったりします。"
+            />
+            <meta
+              property="og:image"
+              content={`https://pk-yakkun.com/images/og/ogp_l_yakkun-lab.png`}
+            />
+            <meta name="twitter:card" content="yakkun lab" />
+          </Head>
+
+          <NormalTemp>
+            <Component {...pageProps} />
+          </NormalTemp>
+          <Footer />
+          <Menu />
+        </ThemeContext.Provider>
+      </ThemeProvider>
+    </>
   );
 }
 
