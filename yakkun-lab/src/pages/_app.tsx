@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               property="og:image"
               content={`https://pk-yakkun.com/images/og/ogp_l_yakkun-lab.png`}
             />
-            <meta name="twitter:card" content="yakkun lab" />
+            <meta name="twitter:card" content="summary_large_image" />
           </Head>
 
           <NormalTemp>
