@@ -37,8 +37,16 @@ function MyApp({ Component, pageProps }: AppProps) {
               content={`https://pk-yakkun.com/images/og/ogp_l_yakkun-lab.png`}
             />
             <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Yakkun Lab" />
+            <meta
+              name="twitter:description"
+              content="やっくんのポートフォリオです。"
+            />
+            <meta
+              name="twitter:image"
+              content="https://pk-yakkun.com/images/og/ogp_l_yakkun-lab.png"
+            />
           </Head>
-
           <NormalTemp>
             <Component {...pageProps} />
           </NormalTemp>
