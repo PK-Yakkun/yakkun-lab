@@ -55,7 +55,7 @@ export const Accordion = () => {
                 <Typography>ホスティング: Vercel</Typography>
               </li>
               <li>
-                <Typography>UIライブラリ: 自作</Typography>
+                <Typography>UIライブラリ: 自作（emotion利用）</Typography>
               </li>
             </ul>
           </Box>
