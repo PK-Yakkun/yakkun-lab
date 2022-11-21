@@ -6,6 +6,8 @@ import { PositionProps, positionMixin } from "@/styles/mixins/position";
 import { SpaceProps, spaceMixin } from "@/styles/mixins/space";
 import { AllEventType } from "@/types/events";
 import { Button } from "@/components/atoms/Button/Button";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 export type AppButtonStyleProps = Partial<LayoutProps> &
   Partial<SpaceProps> &
@@ -16,7 +18,7 @@ export type AppButtonStyleProps = Partial<LayoutProps> &
 
 export const AppButtonStyled = styled.div<AppButtonProps>(
   ({ theme }) => ({
-    background: `${theme.color.secondary}`,
+    background: theme.color.secondary,
     boxShadow: "0 6px 8px rgba(0, 0, 0, 0.15)",
     transition: "0.3s",
     "&:hover": {

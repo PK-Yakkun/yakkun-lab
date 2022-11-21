@@ -17,6 +17,8 @@ export const SvgWrapper = styled.svg<SvgWrapperProps>(
         return { fill: theme.color.primary };
       case "secondary":
         return { fill: theme.color.secondary };
+      case "accent":
+        return { fill: theme.color.accent };
       case "typography":
         return { fill: theme.color.typography };
       default:
