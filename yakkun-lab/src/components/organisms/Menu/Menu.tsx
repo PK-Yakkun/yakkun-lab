@@ -8,7 +8,7 @@ import { GithubIcon } from "@/components/atoms/Icons/GithubIcon";
 import { AppButton } from "@/components/molecules/AppButton/AppButton";
 import { NoteIcon } from "@/components/atoms/Icons/NoteIcon";
 import { Box } from "@/components/atoms/Box/Box";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "@/lib/store/theme";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import { borderMixin, BorderProps } from "@/styles/mixins/border";
 import { spaceMixin, SpaceProps } from "@/styles/mixins/space";
 import { Divider } from "@/components/atoms/Divider/Divider";
 import { PaletteIcon } from "@/components/atoms/Icons/PaletteIcon";
+import { useRouter } from "next/router";
 
 type MenuStyledProps = Partial<LayoutProps> &
   Partial<BorderProps> &
@@ -71,6 +72,16 @@ export const Menu = () => {
    */
   const { isNightMode, setIsNightMode } = useContext(ThemeContext);
 
+  const router = useRouter();
+
+  // 現在のパスを管理するステート
+  const [path, setPath] = useState<string>("");
+
+  // ページ遷移ごとにrouteをセット
+  useEffect(() => {
+    setPath(router.route);
+  }, [router]);
+
   return (
     <MenuStyled w={{ sm: "93%" }} m={{ md: "auto" }} borderRadius="14px">
       <Stack
@@ -84,20 +95,36 @@ export const Menu = () => {
       >
         <Link href="/" passHref>
           <AppButton
-            icon={<HomeIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
+            icon={
+              <HomeIcon
+                width="100%"
+                viewBox="0 0 24 24"
+                fill={path === "/" ? "accent" : "primary"}
+              />
+            }
             chipName="Home"
           />
         </Link>
         <Link href="/gallery" passHref>
           <AppButton
-            icon={<GridIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
+            icon={
+              <GridIcon
+                width="100%"
+                viewBox="0 0 24 24"
+                fill={path === "/gallery" ? "accent" : "primary"}
+              />
+            }
             chipName="Gallery"
           />
         </Link>
         <Link href="/design-system" passHref>
           <AppButton
             icon={
-              <PaletteIcon width="100%" viewBox="0 0 24 24" fill="primary" />
+              <PaletteIcon
+                width="100%"
+                viewBox="0 0 24 24"
+                fill={path === "/design-system" ? "accent" : "primary"}
+              />
             }
             chipName="Gallery"
           />
