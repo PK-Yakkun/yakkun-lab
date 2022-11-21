@@ -16,6 +16,7 @@ import { layoutMixin, LayoutProps } from "@/styles/mixins/layout";
 import { borderMixin, BorderProps } from "@/styles/mixins/border";
 import { spaceMixin, SpaceProps } from "@/styles/mixins/space";
 import { Divider } from "@/components/atoms/Divider/Divider";
+import { PaletteIcon } from "@/components/atoms/Icons/PaletteIcon";
 
 type MenuStyledProps = Partial<LayoutProps> &
   Partial<BorderProps> &
@@ -90,6 +91,14 @@ export const Menu = () => {
         <Link href="/gallery" passHref>
           <AppButton
             icon={<GridIcon width="100%" viewBox="0 0 24 24" fill="primary" />}
+            chipName="Gallery"
+          />
+        </Link>
+        <Link href="/design-system" passHref>
+          <AppButton
+            icon={
+              <PaletteIcon width="100%" viewBox="0 0 24 24" fill="primary" />
+            }
             chipName="Gallery"
           />
         </Link>
