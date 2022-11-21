@@ -34,6 +34,8 @@ export const BoxStyled = styled.div<BoxStyleProps>(
         return { backgroundColor: theme.color.primary };
       case "secondary":
         return { backgroundColor: theme.color.secondary };
+      case "accent":
+        return { backgroundColor: theme.color.accent };
       case "typography":
         return { backgroundColor: theme.color.typography };
       default:

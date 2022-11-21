@@ -38,6 +38,7 @@ export type StyleTypographyProps = Partial<LayoutProps> &
     textAlign?: CSS.Property.TextAlign | BreakPointProps;
     fontSize?: CSS.Property.FontSize | BreakPointProps;
     lineHeight?: CSS.Property.LineHeight | BreakPointProps;
+    whiteSpace?: CSS.Property.WhiteSpace | BreakPointProps;
   };
 
 export const TypographyStyled = styled.span<TypographyProps>(
@@ -51,6 +52,8 @@ export const TypographyStyled = styled.span<TypographyProps>(
         return { color: theme.color.primary };
       case "secondary":
         return { color: theme.color.secondary };
+      case "accent":
+        return { color: theme.color.accent };
       case "typography":
         return { color: theme.color.typography };
       default:
@@ -167,6 +170,11 @@ export const TypographyStyled = styled.span<TypographyProps>(
       ? `&& {line-height: ${lineHeight}};`
       : typeof lineHeight === "object" &&
         createResponsiveStyle("lineHeight", lineHeight.sm, lineHeight.md),
+  ({ whiteSpace }) =>
+    whiteSpace != null && typeof whiteSpace === "string"
+      ? `&& {white-space: ${whiteSpace}};`
+      : typeof whiteSpace === "object" &&
+        createResponsiveStyle("whiteSpace", whiteSpace.sm, whiteSpace.md),
   layoutMixin,
   spaceMixin,
   backgroundMixin,
