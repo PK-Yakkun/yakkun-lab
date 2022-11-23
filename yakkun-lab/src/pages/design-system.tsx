@@ -9,37 +9,37 @@ const DesignSystem = () => {
   return (
     <>
       <Head title="Design System" />
-      <Typography variant="h1" mb={{ sm: 4, md: 10 }}>
+      <Typography variant="h1" mb={{ sm: 8, md: 10 }}>
         Design System
       </Typography>
-      <Box py={5}>
+      <Box py={{ sm: 2, md: 5 }}>
         <Typography variant="h2">Typography</Typography>
         <List py={4} w="100%" overflow="scroll">
-          <ListItem py={3}>
+          <ListItem py={{ sm: 1, md: 3 }}>
             <Typography variant="h3">title</Typography>
             <Typography variant="title" whiteSpace="nowrap">
               M+1p 900 Yakkun Love
             </Typography>
           </ListItem>
-          <ListItem py={3}>
+          <ListItem py={{ sm: 1, md: 3 }}>
             <Typography variant="h3">h1</Typography>
             <Typography variant="h1" whiteSpace="nowrap">
               M+1p 700 Yakkun Love
             </Typography>
           </ListItem>
-          <ListItem py={3}>
+          <ListItem py={{ sm: 1, md: 3 }}>
             <Typography variant="h3">h2</Typography>
             <Typography variant="h2" whiteSpace="nowrap">
               M+1p 700 Yakkun Love
             </Typography>
           </ListItem>
-          <ListItem py={3}>
+          <ListItem py={{ sm: 1, md: 3 }}>
             <Typography variant="h3">h3</Typography>
             <Typography variant="h3" whiteSpace="nowrap">
               M+1p 700 Yakkun Love
             </Typography>
           </ListItem>
-          <ListItem py={3}>
+          <ListItem py={{ sm: 1, md: 3 }}>
             <Typography variant="h3">body</Typography>
             <Typography variant="body" whiteSpace="nowrap">
               M+1p 400 Yakkun Love
@@ -53,7 +53,7 @@ const DesignSystem = () => {
           </ListItem>
         </List>
       </Box>
-      <Box py={5}>
+      <Box py={{ sm: 2, md: 5 }}>
         <Typography variant="h2">Colors</Typography>
         <Stack py={4} gap="30px" overflow="scroll">
           <Box bgColor="body" w="50px" h="50px" border="1px solid #9a9fac" />
@@ -63,7 +63,7 @@ const DesignSystem = () => {
           <Box bgColor="typography" w="50px" h="50px" />
         </Stack>
       </Box>
-      <Box py={5}>
+      <Box py={{ sm: 3, md: 5 }}>
         <Typography variant="h2">Spacing</Typography>
         <Stack py={4} gap="30px" overflow="scroll">
           <Stack
