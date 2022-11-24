@@ -6,14 +6,14 @@ import { PositionProps, positionMixin } from "@/styles/mixins/position";
 import { SpaceProps, spaceMixin } from "@/styles/mixins/space";
 import { AllEventType } from "@/types/events";
 import { Button } from "@/components/atoms/Button/Button";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { HoverProps, hoverMixin } from "@/styles/mixins/hover";
 
 export type AppButtonStyleProps = Partial<LayoutProps> &
   Partial<SpaceProps> &
   Partial<BackgroundProps> &
   Partial<BorderProps> &
   Partial<PositionProps> &
+  Partial<HoverProps> &
   Partial<AllEventType>;
 
 export const AppButtonStyled = styled.div<AppButtonProps>(
@@ -21,9 +21,6 @@ export const AppButtonStyled = styled.div<AppButtonProps>(
     background: theme.color.secondary,
     boxShadow: "0 6px 8px rgba(0, 0, 0, 0.15)",
     transition: "0.3s",
-    "&:hover": {
-      opacity: "0.8",
-    },
     "&:hover > *": {
       opacity: "1",
     },
@@ -32,7 +29,8 @@ export const AppButtonStyled = styled.div<AppButtonProps>(
   spaceMixin,
   backgroundMixin,
   borderMixin,
-  positionMixin
+  positionMixin,
+  hoverMixin
 );
 
 export type AppButtonProps = AppButtonStyleProps & {
@@ -49,6 +47,7 @@ export const AppButton = (props: AppButtonProps) => {
       position="relative"
       p={2}
       borderRadius="12px"
+      hover={{ sm: "1", md: "0.8" }}
     >
       <Button>{props.icon}</Button>
     </AppButtonStyled>
