@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Octokit } from "@octokit/core";
 
-type Contributions = {
+export type Contributions = {
   user: {
     contributionsCollection: {
       contributionCalendar: {
@@ -51,7 +51,17 @@ export default async function handler(
     userName,
   });
 
+  let contributionCount: number[] = [];
+
+  contributions.user.contributionsCollection.contributionCalendar.weeks.forEach(
+    (week) => {
+      week.contributionDays.forEach((contributionDay) => {
+        contributionCount.push(contributionDay.contributionCount);
+      });
+    }
+  );
+
   return response.status(200).json({
-    values: contributions,
+    contributionCount,
   });
 }
