@@ -1,9 +1,47 @@
+import { Box } from "@/components/atoms/Box/Box";
+import { Grid } from "@/components/atoms/Grid/Grid";
+import { GridItem } from "@/components/atoms/GridItem/GridItem";
 import { Typography } from "@/components/atoms/Typography/Typography";
 import { Accordion } from "@/components/organisms/Accordion/Accordion";
 import { Head } from "@/components/organisms/Head/Head";
+import { useContributions } from "@/hooks/useContributes";
 import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
+  const [myContributes, setMyContributes] = useState<any>();
+  const { getContributions } = useContributions();
+
+  useEffect(() => {
+    (async () => {
+      const data = await getContributions("PK-Yakkun");
+      console.log("data", data);
+      setMyContributes(data);
+    })();
+  }, []);
+
+  /**
+   * GitHubの草の色を決める関数
+   * @param count APIで取得したコミット数
+   * @returns opacityのCSS
+   */
+  const createOpacity = (count: number) => {
+    let opacity;
+    count === 0
+      ? (opacity = "0")
+      : 1 <= count && count <= 2
+      ? (opacity = "0.2")
+      : 3 <= count && count <= 6
+      ? (opacity = "0.4")
+      : 7 <= count && count <= 10
+      ? (opacity = "0.6")
+      : 11 <= count && count <= 13
+      ? (opacity = "0.8")
+      : 14 < count && (opacity = "1");
+
+    return opacity;
+  };
+
   return (
     <>
       <Head title="Home" />
@@ -25,6 +63,38 @@ const Home: NextPage = () => {
         <br />
         Next.js, Typescriptをよく使います。
       </Typography>
+
+      {/* GitHub contribute */}
+      <Box
+        maxW="636px"
+        bgColor="secondary"
+        p={{ sm: "18px", md: "24px" }}
+        borderRadius={{ sm: "12px", md: "18px" }}
+        my={4}
+        mx="auto"
+        overflowX="scroll"
+      >
+        <Grid
+          gridTemplateColumns="repeat(27, 1fr)"
+          gridTemplateRows="repeat(7, 1fr)"
+          gridAutoFlow="column"
+          gap="4px"
+        >
+          {myContributes &&
+            myContributes.values.map((count: number, index: number) => (
+              <GridItem key={index}>
+                <Box
+                  w={{ sm: "14px", md: "18px" }}
+                  h={{ sm: "14px", md: "18px" }}
+                  bg="#39D353"
+                  borderRadius="4px"
+                  opacity={createOpacity(count)}
+                />
+              </GridItem>
+            ))}
+        </Grid>
+      </Box>
+      {/* </Stack> */}
 
       {/* About */}
       <Typography variant="h3" mt={{ sm: 8, md: 10 }}>
@@ -51,5 +121,15 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+// export const getServerSideProps = async () => {
+//   const response = await fetch(
+//     "http://localhost:3000/api/getContributes/PK-Yakkun"
+//   );
+//   const data = await response.json();
+//   return {
+//     props: { data },
+//   };
+// };
 
 export default Home;

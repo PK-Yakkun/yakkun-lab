@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Octokit } from "@octokit/core";
+import dayjs from "dayjs";
 
-type Contributions = {
+export type Contributions = {
   user: {
     contributionsCollection: {
       contributionCalendar: {
@@ -20,6 +21,10 @@ type Contributions = {
   };
 };
 
+export type MyContributes = {
+  values: number[];
+};
+
 export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
@@ -30,10 +35,15 @@ export default async function handler(
     auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
   });
 
+  const now = await dayjs().format("YYYY-MM-DDThh:mm:ss");
+  const sixMonthBefore = await dayjs()
+    .subtract(6, "month")
+    .format("YYYY-MM-DDThh:mm:ss");
+
   const query = `
-    query contributions($userName: String!) {
+    query contributions ($userName:String!, $now:DateTime!, $sixMonthBefore:DateTime!) {
       user(login: $userName) {
-        contributionsCollection {
+        contributionsCollection(to: $now, from: $sixMonthBefore) {
           contributionCalendar {
             weeks {
               contributionDays {
@@ -49,9 +59,21 @@ export default async function handler(
 
   const contributions = await octokit.graphql<Contributions>(query, {
     userName,
+    now,
+    sixMonthBefore,
   });
 
+  let contributionCount: number[] = [];
+
+  contributions.user.contributionsCollection.contributionCalendar.weeks.forEach(
+    (week) => {
+      week.contributionDays.forEach((contributionDay) => {
+        contributionCount.push(contributionDay.contributionCount);
+      });
+    }
+  );
+
   return response.status(200).json({
-    values: contributions,
+    values: contributionCount,
   });
 }
