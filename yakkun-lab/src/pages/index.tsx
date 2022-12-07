@@ -15,7 +15,6 @@ const Home: NextPage = () => {
   useEffect(() => {
     (async () => {
       const data = await getContributions("PK-Yakkun");
-      console.log("data", data);
       setMyContributes(data);
     })();
   }, []);
@@ -92,9 +91,9 @@ const Home: NextPage = () => {
                 />
               </GridItem>
             ))}
+          <Box mr={{ sm: "32px" }} />
         </Grid>
       </Box>
-      {/* </Stack> */}
 
       {/* About */}
       <Typography variant="h3" mt={{ sm: 8, md: 10 }}>
