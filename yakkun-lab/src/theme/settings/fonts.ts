@@ -63,7 +63,7 @@ export const fonts = {
     sm: {
       size: "14px",
       weight: "400",
-      lineH: "2.4",
+      lineH: "1.4",
     },
     md: {
       size: "14px",
