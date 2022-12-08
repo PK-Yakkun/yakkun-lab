@@ -16,6 +16,7 @@ export type StackStyleProps = Partial<LayoutProps> &
     direction?: CSS.Property.FlexDirection;
     alignItems?: CSS.Property.AlignItems;
     justifyContent?: CSS.Property.AlignContent;
+    flexWrap?: CSS.Property.FlexWrap;
     gap?: string;
   };
 
@@ -25,6 +26,7 @@ export const StackStyled = styled.div<StackStyleProps>(
   ({ alignItems }) => alignItems != null && { alignItems: `${alignItems}` },
   ({ justifyContent }) =>
     justifyContent != null && { justifyContent: `${justifyContent}` },
+  ({ flexWrap }) => flexWrap != null && { flexWrap: `${flexWrap}` },
   ({ gap }) => gap != null && { gap: `${gap}` },
   layoutMixin,
   spaceMixin,

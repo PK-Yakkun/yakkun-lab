@@ -1,5 +1,7 @@
+import { Box } from "@/components/atoms/Box/Box";
 import { Typography } from "@/components/atoms/Typography/Typography";
 import { Accordion } from "@/components/organisms/Accordion/Accordion";
+import { Contributions } from "@/components/organisms/Contributions";
 import { Head } from "@/components/organisms/Head/Head";
 import type { NextPage } from "next";
 
@@ -23,20 +25,29 @@ const Home: NextPage = () => {
         <br />
         フロントエンドやWebデザインをやったりやってなかったりしています。
         <br />
-        Next.js, Typescriptをよく使います。
+        Next.js, Typescriptをよく使います。UI・デザイン設計が得意です。
       </Typography>
+
+      {/* GitHub contribute */}
+      <Box mt={{ sm: 8, md: 10 }}>
+        <Contributions />
+        <Typography variant="caption" display="block" textAlign="center" mt={1}>
+          直近6ヶ月間のContributes
+        </Typography>
+      </Box>
 
       {/* About */}
       <Typography variant="h3" mt={{ sm: 8, md: 10 }}>
         About
       </Typography>
       <Typography variant="body" mt={2} mb={4}>
-        アプリアイコンがメニューになっています。
+        やっくんのポートフォリオサイトです。
         <br />
-        ギャラリーや各SNSを開いたり開かなかったりできます。
+        アプリアイコンがメニューになっており、ギャラリーや各SNSを開いたり開かなかったりできます。
         <br />
         また、ナイトモードに切り替えたり切り替えなかったりもできます。
       </Typography>
+      {/* 詳細 */}
       <Accordion />
 
       {/* Contact */}
@@ -44,9 +55,9 @@ const Home: NextPage = () => {
         Contact
       </Typography>
       <Typography variant="body" mt={2}>
-        制作などのご依頼はTwitterのDMでお願いいたします。
+        制作などのご依頼はTwitterのDMよりお願いいたします。
         <br />
-        画面下のメニュー内、Twitterアイコンよりアクセスできます。
+        画面下のメニュー内、Twitterアイコンからアクセスすることができます。
       </Typography>
     </>
   );
