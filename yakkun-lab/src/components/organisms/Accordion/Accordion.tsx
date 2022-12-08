@@ -55,6 +55,9 @@ export const Accordion = () => {
                 <Typography>ホスティング: Vercel</Typography>
               </li>
               <li>
+                <Typography>クエリ: GraphQL</Typography>
+              </li>
+              <li>
                 <Typography>UIライブラリ: 自作（emotion利用）</Typography>
               </li>
             </ul>
