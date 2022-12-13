@@ -1,11 +1,12 @@
 import { Box } from "@/components/atoms/Box/Box";
 import { Grid } from "@/components/atoms/Grid/Grid";
 import { GridItem } from "@/components/atoms/GridItem/GridItem";
-import { myContributesType, useContributions } from "@/hooks/useContributes";
-import { useState, useEffect, useRef } from "react";
+import { useContributions } from "@/hooks/useContributes";
+import { MyContributes } from "@/pages/api/contributions/[userName]";
+import { useState, useEffect } from "react";
 
 export const Contributions = () => {
-  const [myContributes, setMyContributes] = useState<myContributesType>();
+  const [myContributes, setMyContributes] = useState<MyContributes>();
   const { getContributions } = useContributions();
 
   useEffect(() => {

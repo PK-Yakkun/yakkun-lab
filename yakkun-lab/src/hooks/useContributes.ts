@@ -1,11 +1,9 @@
-export type myContributesType = {
-  values: [];
-};
+import { MyContributes } from "@/pages/api/contributions/[userName]";
 
 export const useContributions = () => {
   const getContributions = async (userName: string) => {
     const response = await fetch(`../api/contributions/${userName}`);
-    const data: Promise<myContributesType> = await response.json();
+    const data: Promise<MyContributes> = await response.json();
     return data;
   };
 
