@@ -40,6 +40,12 @@ export default async function handler(
     .subtract(6, "month")
     .format("YYYY-MM-DDThh:mm:ss");
 
+  /**
+   * クエリ部分
+   * @param userName ユーザー名
+   * @param now 現在の年月日
+   * @param sixMonthBefore 6ヶ月前の年月日
+   */
   const query = `
     query contributions ($userName:String!, $now:DateTime!, $sixMonthBefore:DateTime!) {
       user(login: $userName) {
