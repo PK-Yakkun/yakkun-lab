@@ -1,3 +1,4 @@
+import { M_PLUS_1 } from "@next/font/google";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@emotion/react";
@@ -8,6 +9,18 @@ import { Head } from "@/components/organisms/Head/Head";
 import { Menu } from "@/components/organisms/Menu/Menu";
 import { NormalTemp } from "@/components/templetes/NormalTemp/NormalTemp";
 import { Footer } from "@/components/molecules/Footer/Footer";
+import styled from "@emotion/styled";
+
+const mPlus1 = M_PLUS_1({
+  weight: ["400", "700", "900"],
+  style: ["normal"],
+  subsets: ["japanese"],
+  display: "swap",
+});
+
+const GlobalFontFamilyStyled = styled.div({
+  fontFamily: mPlus1.style.fontFamily,
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   // NightModeに切り替えるステート
@@ -47,9 +60,11 @@ function MyApp({ Component, pageProps }: AppProps) {
               content="https://pk-yakkun.com/images/og/ogp_l_yakkun-lab.png"
             />
           </Head>
-          <NormalTemp>
-            <Component {...pageProps} />
-          </NormalTemp>
+          <GlobalFontFamilyStyled>
+            <NormalTemp>
+              <Component {...pageProps} />
+            </NormalTemp>
+          </GlobalFontFamilyStyled>
           <Footer />
           <Menu />
         </ThemeContext.Provider>
