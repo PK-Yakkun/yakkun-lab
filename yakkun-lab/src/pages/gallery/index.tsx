@@ -68,6 +68,21 @@ const Gallery: NextPage = () => {
           gridRow={{ sm: "4 span", md: "7 span" }}
           imagePath="scuba_dining.png"
         />
+        <GalleryGridItem
+          gridColumn={{ sm: "12 span", md: "6 span" }}
+          gridRow={{ sm: "4 span", md: "5 span" }}
+          imagePath="todo_light.png"
+          bgSize="50%"
+          bgPosition="center"
+        >
+          <a
+            href="https://github.com/PK-Yakkun/todo-light/blob/develop/README.md"
+            target="blank"
+          >
+            <Box display="block" h="100%" />
+          </a>
+        </GalleryGridItem>
+        大阪市阿倍野区天王寺町南3-8-30 南海グランドコート阿倍野 504号
       </Grid>
     </>
   );
