@@ -64,8 +64,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             <NormalTemp>
               <Component {...pageProps} />
             </NormalTemp>
+            <Footer />
           </GlobalFontFamilyStyled>
-          <Footer />
           <Menu />
         </ThemeContext.Provider>
       </ThemeProvider>
