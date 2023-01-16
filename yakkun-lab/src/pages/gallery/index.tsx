@@ -81,6 +81,16 @@ const Gallery: NextPage = () => {
           gridRow={{ sm: "4 span", md: "5 span" }}
           imagePath="colorful_karafuru.jpg"
         />
+        <GalleryGridItem
+          gridColumn={{ sm: "12 span", md: "6 span" }}
+          gridRow={{ sm: "4 span", md: "5 span" }}
+          imagePath="time_recorder.jpg"
+          bgPosition="center"
+        >
+          <a href="https://github.com/PK-Yakkun/time-recorder" target="blank">
+            <Box display="block" h="100%" />
+          </a>
+        </GalleryGridItem>
       </Grid>
     </>
   );
