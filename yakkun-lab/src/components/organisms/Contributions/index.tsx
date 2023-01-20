@@ -4,6 +4,7 @@ import { GridItem } from "@/components/atoms/GridItem/GridItem";
 import { useContributions } from "@/hooks/useContributes";
 import { MyContributes } from "@/pages/api/contributions/[userName]";
 import { useState, useEffect } from "react";
+import { MutatingDots } from "react-loader-spinner";
 
 export const Contributions = () => {
   const [myContributes, setMyContributes] = useState<MyContributes>();
@@ -47,26 +48,40 @@ export const Contributions = () => {
       mx="auto"
       overflowX="scroll"
     >
-      <Grid
-        gridTemplateColumns="repeat(27, 1fr)"
-        gridTemplateRows="repeat(7, 1fr)"
-        gridAutoFlow="column"
-        gap="4px"
-      >
-        {myContributes &&
-          myContributes.values.map((count: number, index: number) => (
-            <GridItem key={index}>
-              <Box
-                w={{ sm: "14px", md: "16px" }}
-                h={{ sm: "14px", md: "16px" }}
-                bg="#39D353"
-                borderRadius="4px"
-                opacity={createOpacity(count)}
-              />
-            </GridItem>
-          ))}
-        <Box mr={{ sm: "32px" }} />
-      </Grid>
+      {myContributes ? (
+        <Grid
+          gridTemplateColumns="repeat(27, 1fr)"
+          gridTemplateRows="repeat(7, 1fr)"
+          gridAutoFlow="column"
+          gap="4px"
+        >
+          {myContributes &&
+            myContributes.values.map((count: number, index: number) => (
+              <GridItem key={index}>
+                <Box
+                  w={{ sm: "14px", md: "16px" }}
+                  h={{ sm: "14px", md: "16px" }}
+                  bg="#39d353"
+                  borderRadius="4px"
+                  opacity={createOpacity(count)}
+                />
+              </GridItem>
+            ))}
+          <Box mr={{ sm: "32px" }} />
+        </Grid>
+      ) : (
+        <MutatingDots
+          color="#39d353"
+          secondaryColor="#39d353"
+          radius={12}
+          width="100"
+          wrapperStyle={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "3%",
+          }}
+        />
+      )}
     </Box>
   );
 };
