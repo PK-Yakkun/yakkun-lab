@@ -11,7 +11,7 @@ export const Dialog = ({ switchItem }: DialogProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <>
-      <Box onClick={() => !setIsOpen} display="block" w="100%" h="100%">
+      <Box onClick={() => setIsOpen(!isOpen)} display="block" w="100%" h="100%">
         {switchItem}
       </Box>
       <Box
