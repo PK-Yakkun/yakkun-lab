@@ -19,7 +19,7 @@ export const Dialog = ({ switchItem }: DialogProps) => {
         opacity={isOpen ? "1" : "0"}
         transition=".3s"
       >
-        <Screen isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Screen isShow={isOpen} setIsOpen={setIsOpen} />
       </Box>
     </>
   );

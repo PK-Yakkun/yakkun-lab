@@ -1,14 +1,14 @@
 import { Box } from "@/components/atoms/Box/Box";
 
 export type ScreenProps = {
-  isOpen?: boolean;
-  setIsOpen?: (isOpen: boolean) => void;
+  isShow?: boolean;
+  setIsOpen?: (isShow: boolean) => void;
 };
 
 export const Screen = (props: ScreenProps) => {
   return (
     <Box
-      onClick={() => props.setIsOpen!(!props.isOpen)}
+      onClick={() => props.setIsOpen!(!props.isShow)}
       position="fixed"
       top="0"
       left="0"
